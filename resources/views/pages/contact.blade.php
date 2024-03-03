@@ -1,21 +1,6 @@
 @extends('layout.app')
 @section('content')
-<main class="flex-shrink-0">
-    <!-- Navigation-->
-    <nav class="navbar shadow-sm sticky-top navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container px-5">
-            <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">MR-X</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home.Page') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('resume.Page') }}">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('project.Page') }}">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('contact.Page') }}">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
     <!-- Page content-->
     <section class="py-5">
         <div class="container px-5">
@@ -59,20 +44,53 @@
         </div>
     </section>
 </main>
+    
+<script>
 
-<!-- Footer-->
-<footer class="bg-white py-4 mt-auto">
-    <div class="container px-5">
-        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-            <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
-            <div class="col-auto">
-                <a class="small" href="#!">Privacy</a>
-                <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Terms</a>
-                <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Contact</a>
-            </div>
-        </div>
-    </div>
-</footer>
+
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', async (event)=>{
+        event.preventDefault();
+    
+        const fullName = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const msg = document.getElementById('message').value;
+    
+        if(fullName.length === 0){
+            alert('Name Required');
+        }else if(email.length === 0){
+            alert('Email Required');
+        }else if(phone.length === 0){
+            alert('Phone Required');
+        }else{
+            const URL = '/contactRequest';
+            const data = {
+                fullName : fullName,
+                email : email,
+                phone : phone,
+                message : msg
+            }
+
+            document.getElementById('loading-div').classList.remove('d-none');
+            document.getElementById('content-div').classList.add('d-none');
+            const response = await axios.post(URL, data);
+            document.getElementById('loading-div').classList.add('d-none');
+            document.getElementById('content-div').classList.remove('d-none');
+            if(response.status === 200 ){
+                alert('data sent successfully !...');
+                contactForm.reset();
+            }else{
+                alert('something went wrong');
+            }
+    
+        }
+    
+    })
+    
+    
+    
+    
+    </script>
 @endsection
+

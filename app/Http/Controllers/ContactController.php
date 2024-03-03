@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -11,6 +12,10 @@ class ContactController extends Controller
     }
 
     public function contactRequest(Request $request){
-        
+        DB::table('contacts')->insert($request->input());
     }
 }
+
+
+
+
