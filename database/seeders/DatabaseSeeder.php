@@ -8,6 +8,8 @@ use Database\Seeders\ContactSeeder;
 use Database\Seeders\HeroSeeder;
 use Database\Seeders\DownloadLinkSeeder;
 use Database\Seeders\ExperienceSeeder;
+use Database\Seeders\EducationSeeder;
+use Database\Seeders\SkillsSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,14 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        $this->call([
-            ExperienceSeeder::class
-        ]);
+       $this->call([
+        SkillsSeeder::class
+       ]);
     }
 }

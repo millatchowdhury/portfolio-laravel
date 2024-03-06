@@ -24,3 +24,5 @@ Route::get('/aboutRequest', [HomeController::class, 'aboutRequest'])->name('abou
 Route::get('/socialRequest', [HomeController::class, 'socialRequest'])->name('social.Request');
 Route::get('/resumeDownloadRequest', [ResumeController::class, 'resumeDownloadRequest'])->name('resume.Download.Request');
 Route::get('/experienceRequest', [ResumeController::class, 'experienceRequest'])->name('experience.Request');
+Route::get('/educationRequest', [ResumeController::class, 'educationRequest'])->name('education.Request');
+Route::get('/skillsRequest', [ResumeController::class, 'skillsRequest'])->name('skills.Request');

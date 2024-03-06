@@ -18,4 +18,10 @@ class ResumeController extends Controller
     public function experienceRequest(Request $request){
         return DB::table('experiences')->get();
     }
+    public function educationRequest(Request $request){
+        return DB::table('educations')->get();
+    }
+    public function skillsRequest(Request $request){
+        return DB::table('skills')->get();
+    }
 }
