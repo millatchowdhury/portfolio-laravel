@@ -5,7 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\ContactSeeder;
-
+use Database\Seeders\HeroSeeder;
+use Database\Seeders\DownloadLinkSeeder;
+use Database\Seeders\ExperienceSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,7 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            ContactSeeder::class,
+            ExperienceSeeder::class
         ]);
     }
 }

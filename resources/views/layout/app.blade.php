@@ -11,7 +11,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="{{ asset('website') }}/css/bootstrap.css" rel="stylesheet" />
         <link href="{{ asset('website') }}/css/style.css" rel="stylesheet" />
-        <script src="{{ asset('website/js/axios.js') }}"></script>
+        <script src="{{ asset('website') }}/js/axios.js"></script>
+        
     </head>
 
     <body class="d-flex flex-column h-100">
