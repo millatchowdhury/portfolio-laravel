@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 class ContactController extends Controller
 {
     public function page(){
-        return view('pages.contact');
+        $seo = DB::table('seoproperties')->where('pageName', '=', 'contact')->first();
+        return view('pages.contact', ['seo'=>$seo]);
     }
 
     public function contactRequest(Request $request){
